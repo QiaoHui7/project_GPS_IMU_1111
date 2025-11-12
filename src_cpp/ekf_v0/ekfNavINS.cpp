@@ -282,7 +282,7 @@ Eigen::Matrix<float,3,3> ekfNavINS::sk(Eigen::Matrix<float,3,1> w) {
   return C;
 }
 
-constexpr std::pair<double, double> ekfNavINS::earthradius(double lat) {
+std::pair<double, double> ekfNavINS::earthradius(double lat) {
   double denom = fabs(1.0 - (ECC2 * pow(sin(lat),2.0)));
   double Rew = EARTH_RADIUS / sqrt(denom);
   double Rns = EARTH_RADIUS * (1.0-ECC2) / (denom*sqrt(denom));

@@ -251,7 +251,7 @@ class ekfNavINS {
     // maps angle to 0-360
     float constrainAngle360(float dta);
     // Returns Radius - East West and Radius - North South
-    constexpr std::pair<double, double> earthradius(double lat);
+    std::pair<double, double> earthradius(double lat);
     // Yaw, Pitch, Roll to Quarternion
     Eigen::Matrix<float,4,1> toQuaternion(float yaw, float pitch, float roll);
     // Quarternion to Yaw, Pitch, Roll

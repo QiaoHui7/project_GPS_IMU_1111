@@ -22,8 +22,12 @@ set(SOURCES
 
 add_executable(EKF ${SOURCES})
 
-find_package(Eigen3 REQUIRED)
+# find eigen3
+find_package(Eigen3 REQUIRED NO_MODULE)
+# works on Ubuntu, failed on MAC
 include_directories(${EIGEN3_INCLUDE_DIR})
+# for MAC
+# include_directories ( /usr/local/include/eigen3 )
 
 target_include_directories(EKF
     PRIVATE 
