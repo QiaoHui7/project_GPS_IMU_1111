@@ -18,7 +18,7 @@ classdef ekfNavINS < handle
         P_AB_INIT = 0.9810; % initial accelerometer bias covariance
         P_GB_INIT = 0.01745; % initial gyro bias covariance
         G = 9.807; % acceleration due to gravity (m/s²)
-        ECC2 = 0.0066943799901;  % major eccentricity squared
+        ECC2 = 0.0066943799901; % major eccentricity squared
         EARTH_RADIUS = 6378137.0; % earth semi-major axis radius (m)
     end
 
@@ -431,9 +431,9 @@ classdef ekfNavINS < handle
 
             % build measurement residual vector
             % position residuals (meters)
-            obj.y(1) = obj.pos_ned_gps(1);  % north position difference
-            obj.y(2) = obj.pos_ned_gps(2);  % east position difference
-            obj.y(3) = obj.pos_ned_gps(3);  % down position difference
+            obj.y(1) = obj.pos_ned_gps(1); % north position difference
+            obj.y(2) = obj.pos_ned_gps(2); % east position difference
+            obj.y(3) = obj.pos_ned_gps(3); % down position difference
             % velocity residuals (m/s)
             obj.y(4) = obj.V_gps(1) - obj.V_ins(1); % north velocity difference
             obj.y(5) = obj.V_gps(2) - obj.V_ins(2); % east velocity difference
@@ -607,7 +607,7 @@ classdef ekfNavINS < handle
             % Input: yaw, pitch, roll - yaw, pitch, roll angles (radians)
             % Output: q - quaternion [w; x; y; z]
             % Rotation order: ZYX (yaw -> pitch -> roll)
-            
+
             % compute half-angle trigonometric functions
             cy = cos(yaw*0.5);
             sy = sin(yaw*0.5);
@@ -629,7 +629,7 @@ classdef ekfNavINS < handle
             % Input: quat - quaternion [w; x; y; z]
             % Output: roll, pitch, yaw - roll, pitch, yaw angles (radians)
             % Rotation order: ZYX (yaw -> pitch -> roll)
-            
+
             % roll angle (x-axis rotation)
             sinr_cosp = 2 * (quat(1) * quat(2) + quat(3) * quat(4));
             cosr_cosp = 1 - 2 * (quat(2)^2 + quat(3)^2);
