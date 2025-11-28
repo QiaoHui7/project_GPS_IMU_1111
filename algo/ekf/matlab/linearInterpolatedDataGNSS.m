@@ -6,7 +6,7 @@ function [dataGNSSInterpolated, dataIMUInterpolated] = linearInterpolatedDataGNS
 % data GNSS interpolated
 % data IMU interpolated
 %
-dataGNSSInterpolated = zeros(height(dataIMU), length(dataGNSS));
+dataGNSSInterpolated = zeros(size(dataIMU, 1), size(dataGNSS, 2));
 dataIMUInterpolated = zeros(size(dataIMU));
 
 interp_cnt = 0;
